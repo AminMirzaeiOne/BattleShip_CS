@@ -22,5 +22,30 @@ namespace BattleShip.BLL.GameLogic
             _currentShipIndex = 0;
         }
 
+
+        public FireShotResponse FireShot(Coordinate coordinate)
+        {
+            var response = new FireShotResponse();
+
+            // is this coordinate on the board?
+            if (!IsValidCoordinate(coordinate))
+            {
+                response.ShotStatus = ShotStatus.Invalid;
+                return response;
+            }
+
+            // did they already try this position?
+            if (ShotHistory.ContainsKey(coordinate))
+            {
+                response.ShotStatus = ShotStatus.Duplicate;
+                return response;
+            }
+
+            CheckShipsForHit(coordinate, response);
+            CheckForVictory(response);
+
+            return response;
+        }
+
     }
 }

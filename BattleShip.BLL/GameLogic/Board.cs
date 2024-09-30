@@ -181,6 +181,30 @@ namespace BattleShip.BLL.GameLogic
             return ShipPlacement.Ok;
         }
 
+        private ShipPlacement PlaceShipUp(Coordinate coordinate, Ship newShip)
+        {
+            // x coordinate gets smaller
+            int positionIndex = 0;
+            int minX = coordinate.XCoordinate - newShip.BoardPositions.Length;
+
+            for (int i = coordinate.XCoordinate; i > minX; i--)
+            {
+                var currentCoordinate = new Coordinate(i, coordinate.YCoordinate);
+
+                if (!IsValidCoordinate(currentCoordinate))
+                    return ShipPlacement.NotEnoughSpace;
+
+                if (OverlapsAnotherShip(currentCoordinate))
+                    return ShipPlacement.Overlap;
+
+                newShip.BoardPositions[positionIndex] = currentCoordinate;
+                positionIndex++;
+            }
+
+            AddShipToBoard(newShip);
+            return ShipPlacement.Ok;
+        }
+
 
     }
 }

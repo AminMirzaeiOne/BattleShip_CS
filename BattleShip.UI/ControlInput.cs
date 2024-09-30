@@ -8,6 +8,9 @@ namespace BattleShip.UI
 {
     public class ControlInput
     {
+        public static string[] GetNameFromUser()
+        {
 
+        }
     }
 }

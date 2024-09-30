@@ -74,5 +74,22 @@ namespace BattleShip.UI
 
         }
 
+        public static PlaceShipRequest GetLocationFromUser(string ShipType)
+        {
+            PlaceShipRequest result = null;
+            do
+            {
+                Console.Write("- " + ShipType + ": ");
+                result = GetLocation(Console.ReadLine());
+                if (result is null) ;
+                else return result;
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid input. Please input location and direiction. Ex:) a2, r");
+                Console.ForegroundColor = ConsoleColor.White;
+            } while (result is null);
+            return result;
+        }
+
     }
 }

@@ -16,5 +16,16 @@ namespace BattleShip.BLL.Requests
             XCoordinate = x;
             YCoordinate = y;
         }
+
+        public override bool Equals(object obj)
+        {
+            Coordinate otherCoordinate = obj as Coordinate;
+
+            if (otherCoordinate == null)
+                return false;
+
+            return otherCoordinate.XCoordinate == this.XCoordinate &&
+                   otherCoordinate.YCoordinate == this.YCoordinate;
+        }
     }
 }

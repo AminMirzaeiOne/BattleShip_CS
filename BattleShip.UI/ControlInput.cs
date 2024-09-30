@@ -45,5 +45,16 @@ namespace BattleShip.UI
 
             return new string[] { player1, player2, strLevel };
         }
+
+        public static bool IsPlaceBoardAuto()
+        {
+            string strResult = "";
+            do
+            {
+                Console.Write("Let the game places the ship on the board?Y/N : ");
+                strResult = Console.ReadLine(); strResult = strResult.Trim().ToLower();
+            } while (strResult != "y" && strResult != "n");
+            return strResult == "y";
+        }
     }
 }

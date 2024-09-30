@@ -146,5 +146,17 @@ namespace BattleShip.UI
             }
         }
 
+        public static Coordinate GetShotLocationFromComputer(Board victimboard, GameLevel gamelevel)
+        {
+            if (gamelevel == GameLevel.Hard)
+                if (GetRandom.r.Next(1, 100) <= 60)
+                    return GetRightLocationToShot(victimboard);
+            if (gamelevel == GameLevel.Medium)
+                if (GetRandom.r.Next(1, 100) <= 30)
+                    return GetRightLocationToShot(victimboard);
+
+            return new Coordinate(GetRandom.GetLocation(), GetRandom.GetLocation());
+        }
+
     }
 }

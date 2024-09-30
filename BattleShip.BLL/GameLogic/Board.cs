@@ -91,5 +91,42 @@ namespace BattleShip.BLL.GameLogic
             }
         }
 
+        private void CheckShipsForHit(Coordinate coordinate, FireShotResponse response)
+        {
+            response.ShotStatus = ShotStatus.Miss;
+
+            foreach (var ship in Ships)
+            {
+                // no need to check sunk ships
+                if (ship.IsSunk)
+                    continue;
+
+                ShotStatus status = ship.FireAtShip(coordinate);
+
+                switch (status)
+                {
+                    case ShotStatus.HitAndSunk:
+                        response.ShotStatus = ShotStatus.HitAndSunk;
+                        response.ShipImpacted = ship.ShipName;
+                        ShotHistory.Add(coordinate, Responses.ShotHistory.Hit);
+                        break;
+                    case ShotStatus.Hit:
+                        response.ShotStatus = ShotStatus.Hit;
+                        response.ShipImpacted = ship.ShipName;
+                        ShotHistory.Add(coordinate, Responses.ShotHistory.Hit);
+                        break;
+                }
+
+                // if they hit something, no need to continue looping
+                if (status != ShotStatus.Miss)
+                    break;
+            }
+
+            if (response.ShotStatus == ShotStatus.Miss)
+            {
+                ShotHistory.Add(coordinate, Responses.ShotHistory.Miss);
+            }
+        }
+
     }
 }

@@ -43,4 +43,11 @@ namespace BattleShip.BLL.Responses
         Overlap,
         Ok
     }
+
+    public enum ShotHistory
+    {
+        Hit,
+        Miss,
+        Unknown
+    }
 }

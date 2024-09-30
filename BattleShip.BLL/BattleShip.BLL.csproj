@@ -47,6 +47,7 @@
     <Folder Include="GameLogic\" />
     <Folder Include="Requests\" />
     <Folder Include="Responses\" />
+    <Folder Include="Ships\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

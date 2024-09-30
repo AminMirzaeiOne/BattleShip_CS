@@ -66,5 +66,46 @@ namespace BattleShip.UI
 
         }
 
+        static string GetLetterFromNumber(int number)
+        {
+            string result = "";
+            switch (number)
+            {
+                case 1:
+                    result = "A";
+                    break;
+                case 2:
+                    result = "B";
+                    break;
+                case 3:
+                    result = "C";
+                    break;
+                case 4:
+                    result = "D";
+                    break;
+                case 5:
+                    result = "E";
+                    break;
+                case 6:
+                    result = "F";
+                    break;
+                case 7:
+                    result = "G";
+                    break;
+                case 8:
+                    result = "H";
+                    break;
+                case 9:
+                    result = "I";
+                    break;
+                case 10:
+                    result = "J";
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
+
     }
 }

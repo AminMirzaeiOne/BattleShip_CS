@@ -67,5 +67,42 @@ namespace BattleShip.UI
             Console.WriteLine("All ship were placed successfull! Press any key to continue...");
             Console.ReadKey();
         }
+
+        public void PlaceShipOnBoard(Player player)
+        {
+            bool IsPlaceBoardAuto = false;
+            if (player.IsPC != true)
+            {
+                ControlOutput.ShowWhoseTurn(player);
+                IsPlaceBoardAuto = ControlInput.IsPlaceBoardAuto();
+                if (!IsPlaceBoardAuto)
+                    Console.WriteLine("Input the location and direction(l, r, u, d) of the ships. Ex:) a2, r:");
+            }
+            for (ShipType s = ShipType.Destroyer; s <= ShipType.Carrier; s++)
+            {
+                PlaceShipRequest ShipToPlace = new PlaceShipRequest();
+                ShipPlacement result;
+                do
+                {
+                    if (!player.IsPC && !IsPlaceBoardAuto)
+                    {
+                        ShipToPlace = ControlInput.GetLocationFromUser(s.ToString());
+                        ShipToPlace.ShipType = s;
+                        result = player.PlayerBoard.PlaceShip(ShipToPlace);
+                        if (result == ShipPlacement.NotEnoughSpace)
+                            Console.WriteLine("Not Enough Space!");
+                        else if (result == ShipPlacement.Overlap)
+                            Console.WriteLine("Overlap placement!");
+                    }
+                    else
+                    {
+                        ShipToPlace = ControlInput.GetLocationFromComputer();
+                        ShipToPlace.ShipType = s;
+                        result = player.PlayerBoard.PlaceShip(ShipToPlace);
+                    }
+
+                } while (result != ShipPlacement.Ok);
+            }
+        }
     }
 }

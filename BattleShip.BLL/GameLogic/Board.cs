@@ -81,5 +81,15 @@ namespace BattleShip.BLL.GameLogic
             }
         }
 
+        private void CheckForVictory(FireShotResponse response)
+        {
+            if (response.ShotStatus == ShotStatus.HitAndSunk)
+            {
+                // did they win?
+                if (Ships.All(s => s.IsSunk))
+                    response.ShotStatus = ShotStatus.Victory;
+            }
+        }
+
     }
 }

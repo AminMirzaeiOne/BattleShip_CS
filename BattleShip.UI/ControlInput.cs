@@ -158,5 +158,22 @@ namespace BattleShip.UI
             return new Coordinate(GetRandom.GetLocation(), GetRandom.GetLocation());
         }
 
+        static Coordinate GetRightLocationToShot(Board victimboard)
+        {
+            List<Coordinate> tmpList = new List<Coordinate> { };
+            for (int i = 0; i < victimboard.Ships.Length; i++)
+            {
+                Ship tmpShip = victimboard.Ships[i];
+                for (int j = 0; j < tmpShip.BoardPositions.Length; j++)
+                {
+                    if (victimboard.CheckCoordinate(tmpShip.BoardPositions[j]) == ShotHistory.Unknown)
+                        tmpList.Add(tmpShip.BoardPositions[j]);
+                }
+            }
+
+            return tmpList[GetRandom.r.Next(0, tmpList.Count - 1)];
+
+        }
+
     }
 }

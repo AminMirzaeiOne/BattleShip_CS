@@ -30,5 +30,10 @@ namespace BattleShip.BLL.Responses
                     return "";
             }
         }
+
+        public static int GetLocation()
+        {
+            return rand.Next(1, 10);
+        }
     }
 }

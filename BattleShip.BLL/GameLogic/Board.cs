@@ -235,6 +235,22 @@ namespace BattleShip.BLL.GameLogic
             _currentShipIndex++;
         }
 
+        private bool OverlapsAnotherShip(Coordinate coordinate)
+        {
+            foreach (var ship in Ships)
+            {
+                if (ship != null)
+                {
+                    if (ship.BoardPositions.Contains(coordinate))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
 
     }
 }

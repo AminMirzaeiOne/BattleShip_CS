@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameLogic\Board.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GameLogic\" />
     <Folder Include="Requests\" />
     <Folder Include="Responses\" />
     <Folder Include="Ships\" />

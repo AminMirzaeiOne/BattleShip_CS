@@ -91,5 +91,34 @@ namespace BattleShip.UI
             return result;
         }
 
+        public static PlaceShipRequest GetLocation(string location)
+        {
+            string strX, strY, strDirection; int x, y;
+
+            if (location.Split(',').Length == 2)
+            {
+                if (location.Split(',')[0].Trim().Length > 1)
+                {
+                    strX = location.Split(',')[0].Trim().Substring(0, 1);
+                    strY = location.Split(',')[0].Trim().Substring(1);
+                    strDirection = location.Split(',')[1].ToLower().Trim();
+
+                    x = GetNumberFromLetter(strX);
+                    if (x > 0 && x < 11 && int.TryParse(strY, out y) && y > 0 && y < 11
+                        && (strDirection == "l"
+                        || strDirection == "r"
+                        || strDirection == "u"
+                        || strDirection == "d"))
+                    {
+                        PlaceShipRequest ShipToPlace = new PlaceShipRequest();
+                        ShipToPlace.Direction = getDirection(strDirection);
+                        ShipToPlace.Coordinate = new Coordinate(x, y);
+                        return ShipToPlace;
+                    }
+                }
+            }
+            return null;
+        }
+
     }
 }

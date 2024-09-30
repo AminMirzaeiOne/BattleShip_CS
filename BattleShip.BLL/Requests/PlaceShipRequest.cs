@@ -12,5 +12,8 @@ namespace BattleShip.BLL.Requests
         public Coordinate Coordinate { get; set; }
         public ShipDirection Direction { get; set; }
 
+        public ShipType ShipType { get; set; }
+
+
     }
 }

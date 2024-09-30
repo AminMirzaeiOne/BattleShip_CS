@@ -49,9 +49,8 @@
     <Compile Include="Requests\PlaceShipRequest.cs" />
     <Compile Include="Responses\FireShotResponse.cs" />
     <Compile Include="Responses\GetRandom.cs" />
+    <Compile Include="Ships\Ship.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ships\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

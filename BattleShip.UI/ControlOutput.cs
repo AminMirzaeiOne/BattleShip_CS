@@ -107,5 +107,47 @@ namespace BattleShip.UI
             return result;
         }
 
+        public static void DrawHistory(Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.Write("  ");
+            for (int y = 1; y <= 10; y++)
+            {
+                Console.Write(y);
+                Console.Write(" ");
+            }
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            for (int x = 1; x <= 10; x++)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(GetLetterFromNumber(x) + " ");
+                Console.ForegroundColor = ConsoleColor.White;
+                for (int y = 1; y <= 10; y++)
+                {
+                    //Console.Write(y);
+                    ShotHistory history = player.PlayerBoard.CheckCoordinate(new Coordinate(x, y));
+                    switch (history)
+                    {
+                        case ShotHistory.Hit:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write("H");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+                        case ShotHistory.Miss:
+                            Console.Write("M");
+                            break;
+                        case ShotHistory.Unknown:
+                            Console.Write(" ");
+                            break;
+                    }
+                    Console.Write("|");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("");
+        }
+
     }
 }

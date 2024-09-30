@@ -48,5 +48,14 @@ namespace BattleShip.UI
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public static void ShowAllPlayer(Player[] player)
+        {
+            string str = "Player 1: " + player[0].Name + "(Win: " + player[0].Win + ")\t Player 2: " + player[1].Name + "(win: " + player[1].Win + ")";
+            if (player[1].IsPC)
+                str += "\tLevel: " + player[1].GameLevel.ToString();
+            Console.WriteLine(str);
+            Console.WriteLine("");
+        }
+
     }
 }

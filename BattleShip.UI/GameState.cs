@@ -9,6 +9,7 @@ namespace BattleShip.UI
     public class GameState
     {
         public bool IsPlayer1 { get; set; }
+        public Player Player1 { get; set; }
 
     }
 }

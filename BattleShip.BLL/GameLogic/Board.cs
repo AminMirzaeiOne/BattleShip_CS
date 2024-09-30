@@ -229,6 +229,12 @@ namespace BattleShip.BLL.GameLogic
             return ShipPlacement.Ok;
         }
 
+        private void AddShipToBoard(Ship newShip)
+        {
+            Ships[_currentShipIndex] = newShip;
+            _currentShipIndex++;
+        }
+
 
     }
 }

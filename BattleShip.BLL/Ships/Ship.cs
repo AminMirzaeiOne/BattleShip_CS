@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShip.BLL.Ships
 {
-    internal class Ship
+    public class Ship
     {
+        public ShipType ShipType { get; private set; }
+
     }
 }

@@ -253,4 +253,11 @@ namespace BattleShip.BLL.GameLogic
 
 
     }
+
+    public enum GameLevel
+    {
+        Easy,
+        Medium,
+        Hard
+    }
 }

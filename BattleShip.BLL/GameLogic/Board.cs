@@ -8,5 +8,9 @@ namespace BattleShip.BLL.GameLogic
 {
     public class Board
     {
+        public const int xCoordinator = 10;
+        public const int yCoordinator = 10;
+        private Dictionary<Coordinate, ShotHistory> ShotHistory;
+        private int _currentShipIndex;
     }
 }

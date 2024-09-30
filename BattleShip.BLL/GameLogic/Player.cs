@@ -11,5 +11,7 @@ namespace BattleShip.BLL.GameLogic
         public string Name { get; set; }
         public int Win { get; set; }
 
+        public bool IsPC { get; set; }
+
     }
 }

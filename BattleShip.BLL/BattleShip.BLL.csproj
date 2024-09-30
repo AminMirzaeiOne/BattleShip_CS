@@ -46,6 +46,7 @@
     <Compile Include="GameLogic\ShipCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\Coordinate.cs" />
+    <Compile Include="Requests\PlaceShipRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Responses\" />

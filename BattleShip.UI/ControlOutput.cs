@@ -57,5 +57,14 @@ namespace BattleShip.UI
             Console.WriteLine("");
         }
 
+        public static void ShowWhoseTurn(Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(player.Name + " turn... ");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.White;
+
+        }
+
     }
 }

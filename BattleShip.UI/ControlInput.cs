@@ -10,7 +10,7 @@ namespace BattleShip.UI
     {
         public static string[] GetNameFromUser()
         {
-
+            string strComputer = "", strLevel = "", player1 = "", player2 = "";
         }
     }
 }

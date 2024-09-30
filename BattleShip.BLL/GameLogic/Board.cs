@@ -12,5 +12,8 @@ namespace BattleShip.BLL.GameLogic
         public const int yCoordinator = 10;
         private Dictionary<Coordinate, ShotHistory> ShotHistory;
         private int _currentShipIndex;
+
+        public Ship[] Ships { get; private set; }
+
     }
 }

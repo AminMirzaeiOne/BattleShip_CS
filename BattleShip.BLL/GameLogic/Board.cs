@@ -128,5 +128,11 @@ namespace BattleShip.BLL.GameLogic
             }
         }
 
+        private bool IsValidCoordinate(Coordinate coordinate)
+        {
+            return coordinate.XCoordinate >= 1 && coordinate.XCoordinate <= xCoordinator &&
+            coordinate.YCoordinate >= 1 && coordinate.YCoordinate <= yCoordinator;
+        }
+
     }
 }

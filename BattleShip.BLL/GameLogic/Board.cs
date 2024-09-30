@@ -134,5 +134,29 @@ namespace BattleShip.BLL.GameLogic
             coordinate.YCoordinate >= 1 && coordinate.YCoordinate <= yCoordinator;
         }
 
+        private ShipPlacement PlaceShipRight(Coordinate coordinate, Ship newShip)
+        {
+            // y coordinate gets bigger
+            int positionIndex = 0;
+            int maxY = coordinate.YCoordinate + newShip.BoardPositions.Length;
+
+            for (int i = coordinate.YCoordinate; i < maxY; i++)
+            {
+                var currentCoordinate = new Coordinate(coordinate.XCoordinate, i);
+                if (!IsValidCoordinate(currentCoordinate))
+                    return ShipPlacement.NotEnoughSpace;
+
+                if (OverlapsAnotherShip(currentCoordinate))
+                    return ShipPlacement.Overlap;
+
+                newShip.BoardPositions[positionIndex] = currentCoordinate;
+                positionIndex++;
+            }
+
+            AddShipToBoard(newShip);
+            return ShipPlacement.Ok;
+        }
+
+
     }
 }

@@ -216,5 +216,11 @@ namespace BattleShip.UI
             return result;
         }
 
+        public static bool CheckQuit()
+        {
+            Console.WriteLine("Press F5 to replay or any key to quit...");
+            return Console.ReadKey().Key == ConsoleKey.F5;
+        }
+
     }
 }

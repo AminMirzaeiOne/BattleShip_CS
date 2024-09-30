@@ -46,5 +46,32 @@ namespace BattleShip.UI
 
             } while (ControlInput.CheckQuit());
         }
+
+        private FireShotResponse Shot(Player victim, Player Shoter, out Coordinate ShotPoint)
+        {
+            FireShotResponse fire; Coordinate WhereToShot;
+            do
+            {
+                if (!Shoter.IsPC)
+                {
+                    WhereToShot = ControlInput.GetShotLocationFromUser();
+                    fire = victim.PlayerBoard.FireShot(WhereToShot);
+                    if (fire.ShotStatus == ShotStatus.Invalid || fire.ShotStatus == ShotStatus.Duplicate)
+                        ControlOutput.ShowShotResult(fire, WhereToShot, "");
+                }
+                else
+                {
+                    WhereToShot = ControlInput.GetShotLocationFromComputer(victim.PlayerBoard, Shoter.GameLevel);
+                    fire = victim.PlayerBoard.FireShot(WhereToShot);
+                }
+                if (fire.ShotStatus == ShotStatus.Victory)
+                {
+                    if (gm.IsPlayer1) gm.Player1.Win += 1;
+                    else gm.Player2.Win += 1;
+                }
+            } while (fire.ShotStatus == ShotStatus.Duplicate || fire.ShotStatus == ShotStatus.Invalid);
+            ShotPoint = WhereToShot;
+            return fire;
+        }
     }
 }

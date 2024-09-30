@@ -120,5 +120,13 @@ namespace BattleShip.UI
             return null;
         }
 
+        public static PlaceShipRequest GetLocationFromComputer()
+        {
+            PlaceShipRequest ShipToPlace = new PlaceShipRequest();
+            ShipToPlace.Direction = getDirection(GetRandom.GetDirection());
+            ShipToPlace.Coordinate = new Coordinate(GetRandom.GetLocation(), GetRandom.GetLocation());
+            return ShipToPlace;
+        }
+
     }
 }

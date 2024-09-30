@@ -149,5 +149,47 @@ namespace BattleShip.UI
             Console.WriteLine("");
         }
 
+        public static void ShowShotResult(FireShotResponse shotresponse, Coordinate c, string playername)
+        {
+            String str = "";
+            switch (shotresponse.ShotStatus)
+            {
+                case ShotStatus.Duplicate:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    str = "Shot location: " + GetLetterFromNumber(c.XCoordinate) + c.YCoordinate.ToString() + "\t result: Duplicate shot location!";
+                    break;
+                case ShotStatus.Hit:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    str = "Shot location: " + GetLetterFromNumber(c.XCoordinate) + c.YCoordinate.ToString() + "\t result: Hit!";
+                    break;
+                case ShotStatus.HitAndSunk:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    str = "Shot location: " + GetLetterFromNumber(c.XCoordinate) + c.YCoordinate.ToString() + "\t result: Hit and Sunk, " + shotresponse.ShipImpacted + "!";
+                    break;
+                case ShotStatus.Invalid:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    str = "Shot location: " + GetLetterFromNumber(c.XCoordinate) + c.YCoordinate.ToString() + "\t result: Invalid hit location!";
+                    break;
+                case ShotStatus.Miss:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    str = "Shot location: " + GetLetterFromNumber(c.XCoordinate) + c.YCoordinate.ToString() + "\t result: Miss!";
+                    break;
+                case ShotStatus.Victory:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    str = "Shot location: " + GetLetterFromNumber(c.XCoordinate) + c.YCoordinate.ToString() + "\t result: Hit and Sunk, " + shotresponse.ShipImpacted + "! \n\n";
+                    str += "       ******\n";
+                    str += "       ******\n";
+                    str += "        **** \n";
+                    str += "         **  \n";
+                    str += "         **  \n";
+                    str += "       ******\n";
+                    str += "Game Over, " + playername + " wins!";
+                    break;
+            }
+            Console.WriteLine(str);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("");
+        }
+
     }
 }

@@ -13,5 +13,22 @@ namespace BattleShip.BLL.Responses
         {
             return rand.Next(1, 10) <= 5;
         }
+
+        public static string GetDirection()
+        {
+            switch (rand.Next(1, 4))
+            {
+                case 1:
+                    return "l";
+                case 2:
+                    return "r";
+                case 3:
+                    return "u";
+                case 4:
+                    return "d";
+                default:
+                    return "";
+            }
+        }
     }
 }

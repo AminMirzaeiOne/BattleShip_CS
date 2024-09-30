@@ -128,5 +128,23 @@ namespace BattleShip.UI
             return ShipToPlace;
         }
 
+        public static Coordinate GetShotLocationFromUser()
+        {
+            string result = ""; int x, y;
+            while (true)
+            {
+                Console.Write("Which location do you want to shot? ");
+                result = Console.ReadLine();
+                if (result.Trim().Length > 1)
+                {
+                    x = GetNumberFromLetter(result.Substring(0, 1));
+                    if (x > 0 && int.TryParse(result.Substring(1), out y))
+                    {
+                        return new Coordinate(x, y);
+                    }
+                }
+            }
+        }
+
     }
 }

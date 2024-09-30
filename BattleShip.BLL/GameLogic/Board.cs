@@ -59,5 +59,27 @@ namespace BattleShip.BLL.GameLogic
             }
         }
 
+        public ShipPlacement PlaceShip(PlaceShipRequest request)
+        {
+            if (_currentShipIndex > 4)
+                throw new Exception("You can not add another ship, 5 is the limit!");
+
+            if (!IsValidCoordinate(request.Coordinate))
+                return ShipPlacement.NotEnoughSpace;
+
+            Ship newShip = ShipCreator.CreateShip(request.ShipType);
+            switch (request.Direction)
+            {
+                case ShipDirection.Down:
+                    return PlaceShipDown(request.Coordinate, newShip);
+                case ShipDirection.Up:
+                    return PlaceShipUp(request.Coordinate, newShip);
+                case ShipDirection.Left:
+                    return PlaceShipLeft(request.Coordinate, newShip);
+                default:
+                    return PlaceShipRight(request.Coordinate, newShip);
+            }
+        }
+
     }
 }

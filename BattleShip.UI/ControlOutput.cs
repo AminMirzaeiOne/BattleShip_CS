@@ -191,5 +191,14 @@ namespace BattleShip.UI
             Console.WriteLine("");
         }
 
+        static void Test()
+        {
+            List<object> obj = new List<object>();
+            Player player1 = new Player();
+            Board board1 = new Board();
+            obj.Add(board1);
+            obj.Add(player1);
+        }
+
     }
 }

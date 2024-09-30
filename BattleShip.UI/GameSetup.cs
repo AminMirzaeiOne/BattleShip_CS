@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShip.UI
 {
-    internal class GameSetup
+    public class GameSetup
     {
+        GameState _gm;
+
     }
 }

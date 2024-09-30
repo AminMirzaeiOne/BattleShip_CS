@@ -15,5 +15,8 @@ namespace BattleShip.BLL.GameLogic
 
         public Board PlayerBoard;
 
+        public GameLevel GameLevel { get; set; }
+
+
     }
 }

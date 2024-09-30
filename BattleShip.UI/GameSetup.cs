@@ -51,5 +51,21 @@ namespace BattleShip.UI
                 _gm.Player2.IsPC = true;
             }
         }
+
+        public void SetBoard()
+        {
+            ControlOutput.ResetScreen(new Player[] { _gm.Player1, _gm.Player2 });
+
+            _gm.IsPlayer1 = BLL.Responses.GetRandom.WhoseFirst();
+
+            _gm.Player1.PlayerBoard = new Board();
+            PlaceShipOnBoard(_gm.Player1);
+            ControlOutput.ResetScreen(new Player[] { _gm.Player1, _gm.Player2 });
+
+            _gm.Player2.PlayerBoard = new Board();
+            PlaceShipOnBoard(_gm.Player2);
+            Console.WriteLine("All ship were placed successfull! Press any key to continue...");
+            Console.ReadKey();
+        }
     }
 }

@@ -36,5 +36,17 @@ namespace BattleShip.UI
             }
         }
 
+        public static void ShowHeader()
+        {
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("        ************************************");
+            Console.Write("        *"); Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("         BATTLESHIP GAME          "); Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("*");
+            Console.WriteLine("        ************************************");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
     }
 }

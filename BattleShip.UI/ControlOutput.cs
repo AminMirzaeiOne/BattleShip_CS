@@ -8,6 +8,7 @@ namespace BattleShip.UI
 {
     public class ControlOutput
     {
+        static int counttime = 0;
 
     }
 }

@@ -9,6 +9,9 @@ namespace BattleShip.UI
     public class GameSetup
     {
         GameState _gm;
-
+        public GameSetup(GameState gm)
+        {
+            _gm = gm;
+        }
     }
 }

@@ -36,4 +36,11 @@ namespace BattleShip.BLL.Responses
             return rand.Next(1, 10);
         }
     }
+
+    public enum ShipPlacement
+    {
+        NotEnoughSpace,
+        Overlap,
+        Ok
+    }
 }

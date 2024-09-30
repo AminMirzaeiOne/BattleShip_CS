@@ -48,6 +48,7 @@
     <Compile Include="Requests\Coordinate.cs" />
     <Compile Include="Requests\PlaceShipRequest.cs" />
     <Compile Include="Responses\FireShotResponse.cs" />
+    <Compile Include="Responses\GetRandom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ships\" />

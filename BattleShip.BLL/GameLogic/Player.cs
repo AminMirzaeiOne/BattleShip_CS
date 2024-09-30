@@ -13,5 +13,7 @@ namespace BattleShip.BLL.GameLogic
 
         public bool IsPC { get; set; }
 
+        public Board PlayerBoard;
+
     }
 }

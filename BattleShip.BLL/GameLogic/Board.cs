@@ -47,5 +47,17 @@ namespace BattleShip.BLL.GameLogic
             return response;
         }
 
+        public ShotHistory CheckCoordinate(Coordinate coordinate)
+        {
+            if (ShotHistory.ContainsKey(coordinate))
+            {
+                return ShotHistory[coordinate];
+            }
+            else
+            {
+                return Responses.ShotHistory.Unknown;
+            }
+        }
+
     }
 }

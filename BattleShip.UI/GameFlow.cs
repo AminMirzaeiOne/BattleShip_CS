@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BattleShip.UI
 {
-    internal class GameFlow
+    public class GameFlow
     {
+        GameState gm;
+
+        public GameFlow()
+        {
+            gm = new GameState() { IsPlayer1 = false, Player1 = new Player(), Player2 = new Player() };
+        }
     }
 }

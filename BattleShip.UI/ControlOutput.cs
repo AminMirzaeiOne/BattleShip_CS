@@ -24,5 +24,17 @@ namespace BattleShip.UI
             t.Dispose();
 
         }
+
+        private static void ClearFlashScreen(Object state)
+        {
+            if (counttime < 2)
+                counttime += 1;
+            else
+            {
+                Console.Clear();
+                counttime = 0;
+            }
+        }
+
     }
 }

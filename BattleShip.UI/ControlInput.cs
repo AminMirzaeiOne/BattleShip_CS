@@ -56,5 +56,23 @@ namespace BattleShip.UI
             } while (strResult != "y" && strResult != "n");
             return strResult == "y";
         }
+
+
+        public static ShipDirection GetDirection(string direction)
+        {
+            switch (direction.ToLower())
+            {
+                case "l":
+                    return ShipDirection.Left;
+                case "r":
+                    return ShipDirection.Right;
+                case "u":
+                    return ShipDirection.Up;
+                default:
+                    return ShipDirection.Down;
+            }
+
+        }
+
     }
 }

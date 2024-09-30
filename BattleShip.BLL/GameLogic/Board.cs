@@ -15,5 +15,12 @@ namespace BattleShip.BLL.GameLogic
 
         public Ship[] Ships { get; private set; }
 
+        public Board()
+        {
+            ShotHistory = new Dictionary<Coordinate, ShotHistory>();
+            Ships = new Ship[5];
+            _currentShipIndex = 0;
+        }
+
     }
 }

@@ -200,5 +200,12 @@ namespace BattleShip.UI
             obj.Add(player1);
         }
 
+        public static void ResetScreen(Player[] player)
+        {
+            Console.Clear();
+            ControlOutput.ShowHeader();
+            ControlOutput.ShowAllPlayer(player);
+        }
+
     }
 }

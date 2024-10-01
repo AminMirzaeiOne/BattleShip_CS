@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BattleShip.BLL.Requests;
+using BattleShip.BLL.Responses;
 
 namespace BattleShip.BLL.Ships
 {
@@ -21,6 +22,21 @@ namespace BattleShip.BLL.Ships
             ShipType = shipType;
             _lifeRemaining = numberOfSlots;
             BoardPositions = new Coordinate[numberOfSlots];
+        }
+
+        public ShotStatus FireAtShip(Coordinate position)
+        {
+            if (BoardPositions.Contains(position))
+            {
+                _lifeRemaining--;
+
+                if (_lifeRemaining == 0)
+                    return ShotStatus.HitAndSunk;
+
+                return ShotStatus.Hit;
+            }
+
+            return ShotStatus.Miss;
         }
 
     }

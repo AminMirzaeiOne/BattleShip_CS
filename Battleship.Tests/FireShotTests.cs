@@ -165,6 +165,36 @@ namespace Battleship.Tests
             Assert.AreEqual("Cruiser", response.ShipImpacted);
         }
 
+        [Test]
+        public void CanSinkShip()
+        {
+            var board = SetupBoard();
+
+            var coordinate = new Coordinate(6, 10);
+            var response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.Hit, response.ShotStatus);
+            Assert.AreEqual("Battleship", response.ShipImpacted);
+
+            coordinate = new Coordinate(7, 10);
+            response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.Hit, response.ShotStatus);
+            Assert.AreEqual("Battleship", response.ShipImpacted);
+
+            coordinate = new Coordinate(8, 10);
+            response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.Hit, response.ShotStatus);
+            Assert.AreEqual("Battleship", response.ShipImpacted);
+
+            coordinate = new Coordinate(9, 10);
+            response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.HitAndSunk, response.ShotStatus);
+            Assert.AreEqual("Battleship", response.ShipImpacted);
+        }
+
 
 
 

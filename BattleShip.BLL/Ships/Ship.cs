@@ -12,6 +12,7 @@ namespace BattleShip.BLL.Ships
         public ShipType ShipType { get; private set; }
         public string ShipName { get { return ShipType.ToString(); } }
         public Coordinate[] BoardPositions { get; set; }
+        private int _lifeRemaining;
 
 
     }

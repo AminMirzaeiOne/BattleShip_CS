@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleShip.BLL.Requests;
+using BattleShip.UI;
 
 namespace Battleship.Tests
 {
@@ -37,7 +39,7 @@ namespace Battleship.Tests
         [TestCase("u", ShipDirection.Up)]
         public void GetDirection(string direction, ShipDirection expected)
         {
-            Assert.AreEqual(expected, ControlInput.getDirection(direction));
+            Assert.AreEqual(expected, ControlInput.GetDirection(direction));
         }
 
     }

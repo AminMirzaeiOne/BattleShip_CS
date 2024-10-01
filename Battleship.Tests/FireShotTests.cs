@@ -153,6 +153,18 @@ namespace Battleship.Tests
             Assert.AreEqual(ShotStatus.Miss, response.ShotStatus);
         }
 
+        [Test]
+        public void CanHitShip()
+        {
+            var board = SetupBoard();
+
+            var coordinate = new Coordinate(1, 3);
+            var response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.Hit, response.ShotStatus);
+            Assert.AreEqual("Cruiser", response.ShipImpacted);
+        }
+
 
 
 

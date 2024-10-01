@@ -226,6 +226,21 @@ namespace Battleship.Tests
         }
 
 
+        private FireShotResponse SinkBattleship(Board board)
+        {
+            var coordinate = new Coordinate(6, 10);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(7, 10);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(8, 10);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(9, 10);
+            return board.FireShot(coordinate);
+        }
+
 
 
     }

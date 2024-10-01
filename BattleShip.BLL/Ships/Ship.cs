@@ -39,5 +39,16 @@ namespace BattleShip.BLL.Ships
             return ShotStatus.Miss;
         }
 
+
+
+    }
+
+    public enum ShipType
+    {
+        Destroyer,
+        Submarine,
+        Cruiser,
+        Battleship,
+        Carrier
     }
 }

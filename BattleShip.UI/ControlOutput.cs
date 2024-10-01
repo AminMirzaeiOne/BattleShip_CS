@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BattleShip.BLL.GameLogic;
+using BattleShip.BLL.Requests;
+using BattleShip.BLL.Responses;
 
 namespace BattleShip.UI
 {

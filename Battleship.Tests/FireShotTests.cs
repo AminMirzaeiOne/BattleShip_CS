@@ -207,6 +207,23 @@ namespace Battleship.Tests
             Assert.AreEqual(ShotStatus.Victory, SinkCarrier(board).ShotStatus);
         }
 
+        private FireShotResponse SinkCarrier(Board board)
+        {
+            var coordinate = new Coordinate(4, 4);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(4, 5);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(4, 6);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(4, 7);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(4, 8);
+            return board.FireShot(coordinate);
+        }
 
 
 

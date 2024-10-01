@@ -24,5 +24,21 @@ namespace Battleship.Tests
 
             Assert.AreEqual(ShipPlacement.NotEnoughSpace, response);
         }
+
+        [Test]
+        public void CanNotPlaceShipPartiallyOnBoard()
+        {
+            Board board = new Board();
+            PlaceShipRequest request = new PlaceShipRequest()
+            {
+                Coordinate = new Coordinate(10, 10),
+                Direction = ShipDirection.Right,
+                ShipType = ShipType.Carrier
+            };
+
+            var response = board.PlaceShip(request);
+
+            Assert.AreEqual(ShipPlacement.NotEnoughSpace, response);
+        }
     }
 }

@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace Battleship.Tests
 {
+    [TestFixture]
     public class ShipPlacementTests
     {
+        [Test]
+        public void CanNotPlaceShipOffBoard()
+        {
+            Board board = new Board();
+            PlaceShipRequest request = new PlaceShipRequest()
+            {
+                Coordinate = new Coordinate(15, 10),
+                Direction = ShipDirection.Up,
+                ShipType = ShipType.Destroyer
+            };
 
+            var response = board.PlaceShip(request);
+
+            Assert.AreEqual(ShipPlacement.NotEnoughSpace, response);
+        }
     }
 }

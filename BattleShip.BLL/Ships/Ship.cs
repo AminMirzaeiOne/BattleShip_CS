@@ -12,6 +12,8 @@ namespace BattleShip.BLL.Ships
         public ShipType ShipType { get; private set; }
         public string ShipName { get { return ShipType.ToString(); } }
         public Coordinate[] BoardPositions { get; set; }
+        public bool IsSunk { get { return _lifeRemaining == 0; } }
+
         private int _lifeRemaining;
 
 

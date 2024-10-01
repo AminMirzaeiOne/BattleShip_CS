@@ -253,6 +253,18 @@ namespace Battleship.Tests
             return board.FireShot(coordinate);
         }
 
+        private FireShotResponse SinkCruiser(Board board)
+        {
+            var coordinate = new Coordinate(1, 3);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(2, 3);
+            board.FireShot(coordinate);
+
+            coordinate = new Coordinate(3, 3);
+            return board.FireShot(coordinate);
+        }
+
 
 
     }

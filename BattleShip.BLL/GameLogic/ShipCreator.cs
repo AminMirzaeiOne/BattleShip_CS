@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleShip.BLL.Ships;
 
 namespace BattleShip.BLL.GameLogic
 {
     public class ShipCreator
     {
-        public static Ship CreateShip(ShipType type)
+        public static Ship CreateShip(Ships.ShipType type)
         {
             switch (type)
             {

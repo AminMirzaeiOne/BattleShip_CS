@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleShip.BLL.Requests;
+using BattleShip.BLL.Responses;
+using BattleShip.BLL.Ships;
 
 namespace BattleShip.BLL.GameLogic
 {
@@ -10,34 +13,34 @@ namespace BattleShip.BLL.GameLogic
     {
         public const int xCoordinator = 10;
         public const int yCoordinator = 10;
-        private Dictionary<Coordinate, ShotHistory> ShotHistory;
+        private Dictionary<Requests.Coordinate, Responses.ShotHistory> ShotHistory;
         private int _currentShipIndex;
 
-        public Ship[] Ships { get; private set; }
+        public Ships.Ship[] Ships { get; private set; }
 
         public Board()
         {
-            ShotHistory = new Dictionary<Coordinate, ShotHistory>();
-            Ships = new Ship[5];
+            ShotHistory = new Dictionary<Requests.Coordinate, Responses.ShotHistory>();
+            Ships = new Ships.Ship[5];
             _currentShipIndex = 0;
         }
 
 
-        public FireShotResponse FireShot(Coordinate coordinate)
+        public Responses.FireShotResponse FireShot(Requests.Coordinate coordinate)
         {
-            var response = new FireShotResponse();
+            var response = new Responses.FireShotResponse();
 
             // is this coordinate on the board?
             if (!IsValidCoordinate(coordinate))
             {
-                response.ShotStatus = ShotStatus.Invalid;
+                response.ShotStatus = Responses.ShotStatus.Invalid;
                 return response;
             }
 
             // did they already try this position?
             if (ShotHistory.ContainsKey(coordinate))
             {
-                response.ShotStatus = ShotStatus.Duplicate;
+                response.ShotStatus = Responses.ShotStatus.Duplicate;
                 return response;
             }
 
@@ -47,7 +50,7 @@ namespace BattleShip.BLL.GameLogic
             return response;
         }
 
-        public ShotHistory CheckCoordinate(Coordinate coordinate)
+        public Responses.ShotHistory CheckCoordinate(Coordinate coordinate)
         {
             if (ShotHistory.ContainsKey(coordinate))
             {

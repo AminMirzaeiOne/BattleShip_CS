@@ -195,6 +195,17 @@ namespace Battleship.Tests
             Assert.AreEqual("Battleship", response.ShipImpacted);
         }
 
+        [Test]
+        public void CanWinGame()
+        {
+            var board = SetupBoard();
+
+            Assert.AreEqual(ShotStatus.HitAndSunk, SinkDestroyer(board).ShotStatus);
+            Assert.AreEqual(ShotStatus.HitAndSunk, SinkCruiser(board).ShotStatus);
+            Assert.AreEqual(ShotStatus.HitAndSunk, SinkSubmarine(board).ShotStatus);
+            Assert.AreEqual(ShotStatus.HitAndSunk, SinkBattleship(board).ShotStatus);
+            Assert.AreEqual(ShotStatus.Victory, SinkCarrier(board).ShotStatus);
+        }
 
 
 

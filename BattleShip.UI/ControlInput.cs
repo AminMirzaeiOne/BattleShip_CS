@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleShip.BLL.GameLogic;
+using BattleShip.BLL.Requests;
+using BattleShip.BLL.Responses;
+using BattleShip.BLL.Ships;
 
 namespace BattleShip.UI
 {
@@ -111,7 +115,7 @@ namespace BattleShip.UI
                         || strDirection == "d"))
                     {
                         PlaceShipRequest ShipToPlace = new PlaceShipRequest();
-                        ShipToPlace.Direction = getDirection(strDirection);
+                        ShipToPlace.Direction = GetDirection(strDirection);
                         ShipToPlace.Coordinate = new Coordinate(x, y);
                         return ShipToPlace;
                     }
@@ -123,7 +127,7 @@ namespace BattleShip.UI
         public static PlaceShipRequest GetLocationFromComputer()
         {
             PlaceShipRequest ShipToPlace = new PlaceShipRequest();
-            ShipToPlace.Direction = getDirection(GetRandom.GetDirection());
+            ShipToPlace.Direction = GetDirection(GetRandom.GetDirection());
             ShipToPlace.Coordinate = new Coordinate(GetRandom.GetLocation(), GetRandom.GetLocation());
             return ShipToPlace;
         }
@@ -149,10 +153,10 @@ namespace BattleShip.UI
         public static Coordinate GetShotLocationFromComputer(Board victimboard, GameLevel gamelevel)
         {
             if (gamelevel == GameLevel.Hard)
-                if (GetRandom.r.Next(1, 100) <= 60)
+                if (GetRandom.rand.Next(1, 100) <= 60)
                     return GetRightLocationToShot(victimboard);
             if (gamelevel == GameLevel.Medium)
-                if (GetRandom.r.Next(1, 100) <= 30)
+                if (GetRandom.rand.Next(1, 100) <= 30)
                     return GetRightLocationToShot(victimboard);
 
             return new Coordinate(GetRandom.GetLocation(), GetRandom.GetLocation());
@@ -171,7 +175,7 @@ namespace BattleShip.UI
                 }
             }
 
-            return tmpList[GetRandom.r.Next(0, tmpList.Count - 1)];
+            return tmpList[GetRandom.rand.Next(0, tmpList.Count - 1)];
 
         }
 

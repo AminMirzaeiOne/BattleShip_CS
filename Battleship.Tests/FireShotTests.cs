@@ -93,6 +93,21 @@ namespace Battleship.Tests
             board.PlaceShip(request);
         }
 
+        private void PlaceDestroyer(Board board)
+        {
+            var request = new PlaceShipRequest()
+            {
+                Coordinate = new Coordinate(8, 1),
+                Direction = ShipDirection.Right,
+                ShipType = ShipType.Destroyer
+            };
+
+            board.PlaceShip(request);
+        }
+        #endregion
+
+
+
 
     }
 }

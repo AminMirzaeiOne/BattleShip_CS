@@ -19,5 +19,17 @@ namespace Battleship.Tests
         {
             Assert.AreEqual(new Coordinate(x, y), ControlInput.GetLocation(location).Coordinate);
         }
+
+        [TestCase("c12, u")]
+        [TestCase("b8, p")]
+        [TestCase("dc, l")]
+        [TestCase("e11, u")]
+        [TestCase("1c, o")]
+        [TestCase("e13, v")]
+        public void CannotGetLocation(string location)
+        {
+            Assert.IsNull(ControlInput.GetLocation(location));
+        }
+
     }
 }

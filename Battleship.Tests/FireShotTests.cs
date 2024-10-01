@@ -45,5 +45,18 @@ namespace Battleship.Tests
             return board;
         }
 
+        private void PlaceCarrier(Board board)
+        {
+            var request = new PlaceShipRequest()
+            {
+                Coordinate = new Coordinate(4, 4),
+                Direction = ShipDirection.Right,
+                ShipType = ShipType.Carrier
+            };
+
+            board.PlaceShip(request);
+        }
+
+
     }
 }

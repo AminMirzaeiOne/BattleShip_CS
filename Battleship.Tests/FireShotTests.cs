@@ -115,6 +115,20 @@ namespace Battleship.Tests
             Assert.AreEqual(c1, c2);
         }
 
+        [Test]
+        public void CanNotFireOffBoard()
+        {
+            var board = SetupBoard();
+
+            var coordinate = new Coordinate(15, 20);
+
+            var response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.Invalid, response.ShotStatus);
+        }
+
+
+
 
 
 

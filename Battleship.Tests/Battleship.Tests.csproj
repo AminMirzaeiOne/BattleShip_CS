@@ -46,5 +46,15 @@
     <Compile Include="ShipPlacementTests.cs" />
     <Compile Include="UserInputTestTests.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BattleShip.BLL\BattleShip.BLL.csproj">
+      <Project>{92a040b6-a35c-4b47-b760-e4fe8811526e}</Project>
+      <Name>BattleShip.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShip.UI\BattleShip.UI.csproj">
+      <Project>{a01e4319-a4a2-49be-8fdd-e77e4aabd199}</Project>
+      <Name>BattleShip.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

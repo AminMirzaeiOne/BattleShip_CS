@@ -16,6 +16,12 @@ namespace BattleShip.BLL.Ships
 
         private int _lifeRemaining;
 
+        public Ship(ShipType shipType, int numberOfSlots)
+        {
+            ShipType = shipType;
+            _lifeRemaining = numberOfSlots;
+            BoardPositions = new Coordinate[numberOfSlots];
+        }
 
     }
 }

@@ -31,5 +31,14 @@ namespace Battleship.Tests
             Assert.IsNull(ControlInput.GetLocation(location));
         }
 
+        [TestCase("r", ShipDirection.Right)]
+        [TestCase("l", ShipDirection.Left)]
+        [TestCase("d", ShipDirection.Down)]
+        [TestCase("u", ShipDirection.Up)]
+        public void GetDirection(string direction, ShipDirection expected)
+        {
+            Assert.AreEqual(expected, ControlInput.getDirection(direction));
+        }
+
     }
 }

@@ -106,6 +106,15 @@ namespace Battleship.Tests
         }
         #endregion
 
+        [Test]
+        public void CoordinateEquality()
+        {
+            var c1 = new Coordinate(5, 10);
+            var c2 = new Coordinate(5, 10);
+
+            Assert.AreEqual(c1, c2);
+        }
+
 
 
 

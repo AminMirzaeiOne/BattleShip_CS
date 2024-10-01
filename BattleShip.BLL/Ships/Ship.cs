@@ -9,6 +9,7 @@ namespace BattleShip.BLL.Ships
     public class Ship
     {
         public ShipType ShipType { get; private set; }
+        public string ShipName { get { return ShipType.ToString(); } }
 
     }
 }

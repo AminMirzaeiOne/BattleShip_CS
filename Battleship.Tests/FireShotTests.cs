@@ -142,6 +142,17 @@ namespace Battleship.Tests
             Assert.AreEqual(ShotStatus.Duplicate, response.ShotStatus);
         }
 
+        [Test]
+        public void CanMissShip()
+        {
+            var board = SetupBoard();
+
+            var coordinate = new Coordinate(5, 5);
+            var response = board.FireShot(coordinate);
+
+            Assert.AreEqual(ShotStatus.Miss, response.ShotStatus);
+        }
+
 
 
 

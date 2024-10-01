@@ -32,6 +32,18 @@ namespace Battleship.Tests
         /// <returns>A board that is ready to play</returns>
         /// 
 
+        private Board SetupBoard()
+        {
+            Board board = new Board();
+
+            PlaceDestroyer(board);
+            PlaceCruiser(board);
+            PlaceSubmarine(board);
+            PlaceBattleship(board);
+            PlaceCarrier(board);
+
+            return board;
+        }
 
     }
 }
